@@ -36,7 +36,7 @@ public abstract class Character extends AnimatedEntitiy {
 	protected abstract void move(double xa, double ya);
 
 	/**
-	 * Được gọi khi đối tượng bị tiêu diệt
+	 * Được gọi khi đối tượng bị tiêu diêt
 	 */
 	public abstract void kill();
 

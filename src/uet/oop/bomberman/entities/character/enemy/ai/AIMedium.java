@@ -4,18 +4,18 @@ import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.character.enemy.Enemy;
 
 public class AIMedium extends AI {
-	Bomber _bomber;
-	Enemy _e;
-	
-	public AIMedium(Bomber bomber, Enemy e) {
-		_bomber = bomber;
-		_e = e;
-	}
+    Bomber _bomber;
+    Enemy _e;
 
-	@Override
-	public int calculateDirection() {
-		// TODO: cài đặt thuật toán tìm đường đi
-		return random.nextInt(4);
-	}
+    public AIMedium(Bomber bomber, Enemy e) {
+        _bomber = bomber;
+        _e = e;
+    }
+
+    @Override
+    public int calculateDirection() {
+        // TODO: cài đặt thuật toán  tìm đường đi
+        return random.nextInt(4);
+    }
 
 }

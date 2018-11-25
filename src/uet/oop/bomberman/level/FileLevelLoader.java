@@ -1,13 +1,9 @@
 package uet.oop.bomberman.level;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Random;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.LayeredEntity;
@@ -35,13 +31,13 @@ public class FileLevelLoader extends LevelLoader {
 	public FileLevelLoader(Board board, int level) throws LoadLevelException {
 		super(board, level);
 	}
-	
+
 	@Override
 	public void loadLevel(int level) {
 		// TODO: đọc dữ liệu từ tệp cấu hình /levels/Level{level}.txt
 		// TODO: cập nhật các giá trị đọc được vào _width, _height, _level, _map
 		try {
-			URL Path = FileLevelLoader.class.getResource("/levels/Level" + level+".txt");
+			URL Path = FileLevelLoader.class.getResource("/levels/Level" + level +".txt");
 			BufferedReader in = new BufferedReader(new InputStreamReader(Path.openStream()));
 			String data = in.readLine();
 			StringTokenizer tokens = new StringTokenizer(data);

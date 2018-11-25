@@ -16,17 +16,16 @@ public class Portal extends Tile {
 	public boolean collide(Entity e) {
 		// TODO: xử lý khi Bomber đi vào
 		if(e instanceof Bomber ) {
-			_board.nextLevel();
-			if(_board.detectNoEnemies() == false)
+			if (_board.detectNoEnemies()) {
+				if (e.getXTile() == getX() && e.getYTile() == getY()) {
+					if (_board.detectNoEnemies())
+						_board.nextLevel();
+				}
+				return true;
+			} else {
 				return false;
-
-			if(e.getXTile() == getX() && e.getYTile() == getY()) {
-				if(_board.detectNoEnemies())
-					_board.nextLevel();
 			}
-			return true;
 		}
-
 		return false;
 	}
 

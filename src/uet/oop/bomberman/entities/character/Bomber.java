@@ -1,7 +1,6 @@
 package uet.oop.bomberman.entities.character;
 
 import java.util.ArrayList;
-
 import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.Entity;
@@ -12,7 +11,6 @@ import uet.oop.bomberman.input.Keyboard;
 
 import java.util.Iterator;
 import java.util.List;
-
 import uet.oop.bomberman.entities.LayeredEntity;
 import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.entities.bomb.FlameSegment;
@@ -20,7 +18,6 @@ import uet.oop.bomberman.entities.character.enemy.Enemy;
 import uet.oop.bomberman.entities.tile.Wall;
 import uet.oop.bomberman.entities.tile.item.Item;
 import uet.oop.bomberman.level.Coordinates;
-
 public class Bomber extends Character {
 
     private List<Bomb> _bombs;
@@ -84,12 +81,12 @@ public class Bomber extends Character {
         // TODO: _timeBetweenPutBombs dùng để ngăn chặn Bomber đặt 2 Bomb cùng tại 1 vị trí trong 1 khoảng thời gian quá ngắn
         // TODO: nếu 3 điều kiện trên thỏa mãn thì thực hiện đặt bom bằng placeBomb()
         // TODO: sau khi đặt, nhớ giảm số lượng Bomb Rate và reset _timeBetweenPutBombs về 0
-        if (_input.space && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
+        if(_input.space && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
 
             int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
-            int yt = Coordinates.pixelToTile((_y + _sprite.getSize() / 2) - _sprite.getSize()); //subtract half player height and minus 1 y position
+            int yt = Coordinates.pixelToTile( (_y + _sprite.getSize() / 2) - _sprite.getSize() ); //subtract half player height and minus 1 y position
 
-            placeBomb(xt, yt);
+            placeBomb(xt,yt);
             Game.addBombRate(-1);
 
             _timeBetweenPutBombs = 30;
@@ -100,7 +97,6 @@ public class Bomber extends Character {
         // TODO: thực hiện tạo đối tượng bom, đặt vào vị trí (x, y)
         Bomb b = new Bomb(x, y, _board);
         _board.addBomb(b);
-        sound.gameSound.getIstance().play(sound.gameSound.PUTBOMB);
     }
 
     private void clearBombs() {
@@ -121,7 +117,6 @@ public class Bomber extends Character {
     public void kill() {
         if (!_alive) return;
         _alive = false;
-        sound.gameSound.getIstance().play(sound.gameSound.LASTENEMY);
     }
 
     @Override
@@ -137,12 +132,12 @@ public class Bomber extends Character {
         // TODO: xử lý nhận tín hiệu điều khiển hướng đi từ _input và gọi move() để thực hiện di chuyển
         // TODO: nhớ cập nhật lại giá trị cờ _moving khi thay đổi trạng thái di chuyển
         int xa = 0, ya = 0;
-        if (_input.up) ya--;
-        if (_input.down) ya++;
-        if (_input.left) xa--;
-        if (_input.right) xa++;
+        if(_input.up) ya--;
+        if(_input.down) ya++;
+        if(_input.left) xa--;
+        if(_input.right) xa++;
 
-        if (xa != 0 || ya != 0) {
+        if(xa != 0 || ya != 0)  {
             move(xa * Game.getBomberSpeed(), ya * Game.getBomberSpeed());
             _moving = true;
         } else {
@@ -159,7 +154,7 @@ public class Bomber extends Character {
 
             Entity a = _board.getEntity(xt, yt, this);
 
-            if (!a.collide(this))
+            if(!a.collide(this))
                 return false;
         }
         return true;
@@ -169,16 +164,16 @@ public class Bomber extends Character {
     public void move(double xa, double ya) {
         // TODO: sử dụng canMove() để kiểm tra xem có thể di chuyển tới điểm đã tính toán hay không và thực hiện thay đổi tọa độ _x, _y
         // TODO: nhớ cập nhật giá trị _direction sau khi di chuyển
-        if (xa > 0) _direction = 1;
-        if (xa < 0) _direction = 3;
-        if (ya > 0) _direction = 2;
-        if (ya < 0) _direction = 0;
+        if(xa > 0) _direction = 1;
+        if(xa < 0) _direction = 3;
+        if(ya > 0) _direction = 2;
+        if(ya < 0) _direction = 0;
 
-        if (canMove(0, ya)) {
+        if(canMove(0, ya)) { //separate the moves for the player can slide when is colliding
             _y += ya;
         }
 
-        if (canMove(xa, 0)) {
+        if(canMove(xa, 0)) {
             _x += xa;
         }
     }
@@ -186,18 +181,18 @@ public class Bomber extends Character {
     @Override
     public boolean collide(Entity e) {
         // TODO: xử lý va chạm với Flame
-        if (e instanceof FlameSegment) {
-            kill();
-            return true;
-        }
-
-        if (e instanceof Flame) {
-            kill();
-            return true;
-        }
         // TODO: xử lý va chạm với Enemy
+        if(e instanceof FlameSegment) {
+            kill();
+            return true;
+        }
 
-        if (e instanceof Enemy) {
+        if(e instanceof Flame) {
+            kill();
+            return true;
+        }
+
+        if(e instanceof Enemy) {
             kill();
             return true;
         }
@@ -241,8 +236,8 @@ public class Bomber extends Character {
     }
 
     public void addItem(Item it) {
-        if (it.isRemoved()) return;
-        sound.gameSound.getIstance().play(sound.gameSound.POWER);
+        if(it.isRemoved()) return;
+
         _items.add(it);
 
         it.setValues();
@@ -252,7 +247,7 @@ public class Bomber extends Character {
         Item it;
         for (int i = 0; i < _items.size(); i++) {
             it = _items.get(i);
-            if (it.isActive() == false)
+            if(it.isActive() == false)
                 _items.remove(i);
         }
     }

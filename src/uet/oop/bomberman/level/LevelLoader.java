@@ -7,30 +7,31 @@ import uet.oop.bomberman.exceptions.LoadLevelException;
  * Load và lưu trữ thông tin bản đồ các màn chơi
  */
 public abstract class LevelLoader {
-    protected int _width, _height;
-    protected int _level;
-    protected String[] _lineTiles;
-    protected Board _board;
 
-    public LevelLoader(Board board, int level) throws LoadLevelException {
-        _board = board;
-        loadLevel(level);
-    }
+	protected int _width, _height;
+	protected int _level;
+	protected String[] _lineTiles;
+	protected Board _board;
 
-    public abstract void loadLevel(int level) throws LoadLevelException;
+	public LevelLoader(Board board, int level) throws LoadLevelException {
+		_board = board;
+		loadLevel(level);
+	}
 
-    public abstract void createEntities();
+	public abstract void loadLevel(int level) throws LoadLevelException;
 
-    public int getWidth() {
-        return _width;
-    }
+	public abstract void createEntities();
 
-    public int getHeight() {
-        return _height;
-    }
+	public int getWidth() {
+		return _width;
+	}
 
-    public int getLevel() {
-        return _level;
-    }
+	public int getHeight() {
+		return _height;
+	}
+
+	public int getLevel() {
+		return _level;
+	}
 
 }

@@ -19,7 +19,6 @@ public class BombItem extends Item {
 			remove();
 			return true;
 		}
-
 		return false;
 	}
 	public void setValues() {

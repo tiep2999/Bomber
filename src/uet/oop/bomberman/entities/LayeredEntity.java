@@ -45,7 +45,7 @@ public class LayeredEntity extends Entity {
 	
 	private void clearRemoved() {
 		Entity top  = getTopEntity();
-		
+
 		if(top.isRemoved())  {
 			_entities.removeLast();
 		}

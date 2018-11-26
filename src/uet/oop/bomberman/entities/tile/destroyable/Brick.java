@@ -15,7 +15,7 @@ public class Brick extends DestroyableTile {
 	public void update() {
 		super.update();
 	}
-	
+
 	@Override
 	public void render(Screen screen) {
 		int x = Coordinates.tileToPixel(_x);

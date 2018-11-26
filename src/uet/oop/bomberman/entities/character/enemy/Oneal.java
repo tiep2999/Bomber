@@ -18,7 +18,7 @@ public class Oneal extends Enemy {
 	}
 	
 	@Override
-	protected void chooseSprite() {
+	protected void  chooseSprite() {
 		switch(_direction) {
 			case 0:
 			case 1:

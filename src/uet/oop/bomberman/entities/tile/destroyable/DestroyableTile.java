@@ -10,7 +10,7 @@ import uet.oop.bomberman.graphics.Sprite;
 /**
  * Đối tượng cố định có thể bị phá hủy
  */
-public class DestroyableTile extends Tile {
+public class DestroyableTile extends  Tile {
 
 	private final int MAX_ANIMATE = 7500;
 	private int _animate = 0;

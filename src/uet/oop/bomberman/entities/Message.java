@@ -27,7 +27,7 @@ public class Message extends Entity {
 		_x =x;
 		_y = y;
 		_message = message;
-		_duration = duration * 60; //seconds
+		_duration = duration * 60;
 		_color = color;
 		_size = size;
 	}

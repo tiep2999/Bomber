@@ -187,18 +187,6 @@ public class FileLevelLoader extends LevelLoader {
 				_board.addCharacter( new Oneal(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
 				_board.addEntity(pos, new Grass(x, y, Sprite.grass));
 				break;
-			case '3':
-				_board.addCharacter( new Oneal(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-				_board.addEntity(pos, new Grass(x, y, Sprite.grass));
-				break;
-			case '4':
-				_board.addCharacter( new Oneal(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-				_board.addEntity(pos, new Grass(x, y, Sprite.grass));
-				break;
-			case '5':
-				_board.addCharacter( new Oneal(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-				_board.addEntity(pos, new Grass(x, y, Sprite.grass));
-				break;
 			default:
 				_board.addEntity(pos, new Grass(x, y, Sprite.grass) );
 				break;

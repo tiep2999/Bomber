@@ -20,7 +20,6 @@ public class SpeedItem extends Item {
 			remove();
 			return true;
 		}
-
 		return false;
 	}
 

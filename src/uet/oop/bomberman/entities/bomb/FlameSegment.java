@@ -72,7 +72,7 @@ public class FlameSegment extends Entity {
 
 	@Override
 	public boolean collide(Entity e) {
-		// TODO: xử lý khi FlameSegment va chạm với Character
+		// TODO: xử lý khi acFlameSegment va chạm với Charter
 		if(e instanceof Bomber) {
 			((Bomber)e).kill();
 		}

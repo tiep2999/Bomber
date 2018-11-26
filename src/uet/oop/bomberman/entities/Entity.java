@@ -55,7 +55,7 @@ public abstract class Entity implements IRender {
 		return _y;
 	}
 	
-	public int getXTile() {
+	public int  getXTile() {
 		return Coordinates.pixelToTile(_x + _sprite.SIZE / 2);
 	}
 	
